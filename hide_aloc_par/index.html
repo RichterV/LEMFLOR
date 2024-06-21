@@ -1,0 +1,852 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../img/lemflor_icon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Alocação de parcelas com QGIS - LEMFLOR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#alocacao-de-parcelas-com-qgis" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="LEMFLOR" class="md-header__button md-logo" aria-label="LEMFLOR" data-md-component="logo">
+      
+  <img src="../img/lemflor_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LEMFLOR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Alocação de parcelas com QGIS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-gray" data-md-color-accent="indigo"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="LEMFLOR" class="md-nav__button md-logo" aria-label="LEMFLOR" data-md-component="logo">
+      
+  <img src="../img/lemflor_icon.png" alt="logo">
+
+    </a>
+    LEMFLOR
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projetos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projetos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../materiais/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Materiais
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtencao-de-imagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtenção de imagens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delimitacao-da-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delimitação da área
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Delimitação da área">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-a-passo-qgis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passo a passo - QGIS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passo a passo - QGIS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criacao-dos-limites-do-talhao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação dos limites do talhão
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alocacao-de-parcelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ALOCAÇÃO DE PARCELAS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ALOCAÇÃO DE PARCELAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alocacao-manual-de-parcelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alocação manual de parcelas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alocacao-automatica-de-parcelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alocação automática de parcelas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numeracao-de-parcelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      NUMERAÇÃO DE PARCELAS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-buffer-de-parcela" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRIAR BUFFER DE PARCELA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exportar-mapa-para-o-app-avenza-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXPORTAR MAPA PARA O APP AVENZA MAPS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EXPORTAR MAPA PARA O APP AVENZA MAPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criacao-do-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação do Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exportacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exportação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introducao-ao-avenza-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTRODUÇÃO AO AVENZA MAPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionar-mapa-ao-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADICIONAR MAPA AO APP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="alocacao-de-parcelas-com-qgis">Alocação de parcelas com QGIS</h1>
+<div class="admonition note">
+<p class="admonition-title">Autor</p>
+<p>Vinicius Richter</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Atenção</p>
+<p>Essa aula foi elaborada como requisito da disciplina de pós-gradução “Docência orientada I”, sendo material de apoio e não possuindo fins comerciais.</p>
+</div>
+<h2 id="download-links"><strong>Download links</strong></h2>
+<div class="icon-container">
+    <img src="../img/materiais/qgis_alocacao_parcelas/avenza_icon.png" alt="Ícone 2">
+    <img src="../img/materiais/qgis_alocacao_parcelas/sas_planet_icon.png" alt="Ícone 3">
+    <img src="../img/materiais/qgis_alocacao_parcelas/qgis_icon.png" alt="Ícone 4">
+</div>
+<p><a href="https://gisenglish.geojamal.com/search/label/SASPlanet">SASPlanet</a></p>
+<p><a href="https://qgis.org/pt_BR/site/forusers/download.html">QGIS</a></p>
+<p><a href="https://play.google.com/store/apps/details?id=com.Avenza&amp;hl=pt_BR">Avenza</a></p>
+<h2 id="obtencao-de-imagens"><strong>Obtenção de imagens</strong></h2>
+<p>Através do software SASPlanet é possível obter imagens do Google Earth (entre outras fontes) georreferenciadas.</p>
+<div class="image-container">
+    <h2 class="image-title">Selecionar o imageamento do Google Maps e posteriormente encontrar a área de interesse</h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_1.PNG" alt="img 1" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">Após localizar a área de interesse, clicar na ferramente de seleção e selecionar a área em que serão instaladas as parcelas de inventário.</h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_2.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+        Na aba “download”, selecionar a zona UTM na janela “zooms”.
+        <a href="https://mangomap.com/robertyoung/maps/69585/what-utm-zone-am-i-in-#" target="_blank">Clique aqui para ver sua UTM zone.</a>
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_3.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+        Na aba “Stitch”, selecionar o “Outputformat” GeoTIFF e definir o local em que a imagem será salva. Isso irá garantir que a imagem seja exportada georreferenciada.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_4.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<h2 id="delimitacao-da-area"><strong>Delimitação da área</strong></h2>
+<p>Através do software QGIS conseguimos distribuir as parcelas de forma sistemática ou aleatória e exportar o mapa para um app mobile.</p>
+<h3 id="passo-a-passo-qgis">Passo a passo - QGIS</h3>
+<div class="image-container">
+    <h2 class="image-title">
+        Primeiramente, inserir a imagem exportada pelo SASPlanet no QGIS. Para isso, basta arrastar o arquivo .tif exportado.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_5.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+        Após isso, devemos criar uma nova camada de geometria “Polígono” para definir os limites do talhão em que desejamos fazer o inventário.
+        “Camada” -> “Criar nova camada” -> “Nova Camada Shapefile”
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_6.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+
+<h4 id="criacao-dos-limites-do-talhao">Criação dos limites do talhão</h4>
+<div class="image-container">
+    <h2 class="image-title">
+        Selecionar um local para salvar o shapefile e posteriormente selecionar “Tipo de geometria” -> “Polígono”. Clicar em “ok”.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_7.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+        Para habilitar edições do shapefile criado, devemos clicar com o direito em cima do shapefile e em “Alternar Edição”. Isso irá habilitar as ferramentas que permitem criar um polígono.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_8.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+        Para inicar a criação basta clicar em na ferramenta “Adicionar Polígono”
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_9.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+        Após isso, basta clicar com o botão esquerdo nas bordas do talhão e posteriormente clicar com o direito para finalizar a delimitação.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_10.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+        Posteriormente, clicar no disquete para salvar e no lápis para desabilitar a edição da camada.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_11.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+
+<h3 id="alocacao-de-parcelas">ALOCAÇÃO DE PARCELAS</h3>
+<p>A alocação das parcelas de inventário florestal pode ser realizada de forma manual, criando um shapefile de pontos e alocando cada ponto manualmente ou  utilizar a ferramenta nativa “Pontos Regulares”.</p>
+<h4 id="alocacao-manual-de-parcelas">Alocação manual de parcelas</h4>
+<div class="image-container">
+    <h2 class="image-title">
+        “Camada” -> “Criar nova camada” -> “Nova Camada Shapefile”. Selecionar o “tipo de geometria” -> “Ponto”.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_12.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+        Após isso, basta habilitar a edição da camada clicando no lápis e distribuir as parcelas conforme necessário.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_13.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+
+<p>A ferramentas “Pontos Regulares” cria um grid de parcelas ou parcelas aleatórias com uma distância entre sí pré definidas. Após criar o grid de parcelas nasta recortar o grid usando o shapefile dos limites do talhão.</p>
+<h4 id="alocacao-automatica-de-parcelas">Alocação automática de parcelas</h4>
+<div class="image-container">
+    <h2 class="image-title">
+        “Vetor” -> “Investigar” -> “Pontos Regulares”.
+        Definir o shapefile do limite do talhão como “extensão de entrada”.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_14.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+        O campo “Contagem/Espaçamento de ponto” define qual distância uma parcela terá da outra. O campo “Entremeio Inicial do canto” define a distância da borda. 
+        Se a opção “Aplicar deslocamento aleatório ao espaçamento de pontos” for selecionada, a alocação acontecerá de forma aleatória.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_15.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+       Após distribuídas as parcelas, será necessário recortar somente as parcelas que caíram dentro dos limites do talhão.
+       “Vetor” -> “Geoprocessamento” -> “Recortar”
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_16.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="justificado-transparente">
+    <p>
+        Selecionar os pontos criados pela ferramenta anterior como “camada de entrada” e os limites do talhão como “camada de sobreposição”.
+        Após executar, uma nova camada contendo apenas os pontos dentro do talhão será criada, e poderá ser usada como base para o inventário florestal.
+    </p>
+</div>
+
+<h3 id="numeracao-de-parcelas">NUMERAÇÃO DE PARCELAS</h3>
+<p>Podemos mudar as propriedades do shapefile contendo as parcelas de modo que o número da parcela seja mostrada no mapa.</p>
+<div class="image-container">
+    <h2 class="image-title">
+       Selecionando a opção “Desenhar buffer de texto” o número das parcelas será mostrado no mapa.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_17.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="image-container">
+    <h2 class="image-title">
+       A numeração usada ainda é a do layer inicial não recortado e, devido a isso, a numeração não está sequêncis. Tal fato não será um problema nesta aula.
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_18.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+
+<h3 id="criar-buffer-de-parcela">CRIAR BUFFER DE PARCELA</h3>
+<p>Podemos criar um buffer com o limite da área da parcela para ajudar na localização em campo.
+Supondo que nossas parcelas possuem 400m² e são circulares, seu raio é 11,284m.
+$$ r = \sqrt{\frac{\text{área}}{\pi}} $$</p>
+<div class="image-container">
+    <h2 class="image-title">
+       “Vetor” -> “Geoprocessamento” -> “Buffer”
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_19.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<div class="justificado-transparente">
+    <p>
+        Selecionando o shapefile das parcelas como “Camada de entrada” e definindo a “Distância” como 11,284 metros conseguimos criar um buffer circular de 400m² ao redor de cada parcela. 
+
+        Após isso, podemos acessar as propriedades do buffer criado e na aba “simbologia”, definir a “opacidade” para 50%, o que irá permitir a visualização do centro da parcela. 
+
+        <span style="color: red;">O buffer nos permite verificar que algumas parcelas acabam ficando parcialmente fora do talhão e que deveríamos remove-las. Para fins práticos, iremos mantê-las nesta aula.</span>
+    </p>
+</div>
+
+<div class="image-container">
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_20.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+
+<h3 id="exportar-mapa-para-o-app-avenza-maps">EXPORTAR MAPA PARA O APP AVENZA MAPS</h3>
+<p>Para facilitar a chegada o local exato da parcela em campo, podemos utilizar o aplicativo mobile “Avenza Maps”.</p>
+<h4 id="criacao-do-layout">Criação do Layout</h4>
+<div class="justificado-transparente">
+    <p>
+       Apertando <kbd>Ctrl</kbd> + <kbd>P</kbd>. dentro do QGIS criar um painel de Layout. Esse é o local onde preparamos os mapas
+    </p>
+</div>
+
+<p><img src="../img/materiais/qgis_alocacao_parcelas/img_21.PNG" alt="Descrição da Imagem" class="centered-image">
+Na lateral esquerda podemos clicar em “Adicionar Mapa” e definir a área onde o mapa sera alocado.
+<img src="../img/materiais/qgis_alocacao_parcelas/img_22.PNG" alt="Descrição da Imagem" class="centered-image">
+<img src="../img/materiais/qgis_alocacao_parcelas/img_23.PNG" alt="Descrição da Imagem" class="centered-image">
+Selecionando a ferramenta “Mover o conteúdo do item” podemos posicionar o mapa da melhor forma.
+<img src="../img/materiais/qgis_alocacao_parcelas/img_24.PNG" alt="Descrição da Imagem" class="centered-image">
+Usando a barra lateral esquerda podemos também adicionar uma rosa dos ventos e um título ao mapa
+<img src="../img/materiais/qgis_alocacao_parcelas/img_25.PNG" alt="Descrição da Imagem" class="centered-image"></p>
+<h4 id="exportacao">Exportação</h4>
+<p>Para exportar o mapa basta clicar em “Layout”, no menu superior, e em “Exportar como PDF” 
+<img src="../img/materiais/qgis_alocacao_parcelas/img_26.PNG" alt="Descrição da Imagem" class="centered-image"></p>
+<div class="justificado-transparente">
+    <p>
+        As opções “Exportar sempre como vetores” e “Criar PDF Geoespacial” devem estar selecionadas, de modo que o PDF exporte consigo as coordenadas de cada shapefile.
+        Após isso, o mapa estmkdoa pronto para ser utilizado no celular.
+    </p>
+</div>
+
+<h3 id="introducao-ao-avenza-maps">INTRODUÇÃO AO AVENZA MAPS</h3>
+<div class="justificado-transparente">
+    <p>
+        O aplicativo mobile Avenza Maps permite a importação de mapas para o celular, o que permite utilizar o mesmo como ferramenta para se localizar e acessar as coordenadas corretas das parcelas.
+    </p>
+</div>
+
+<h3 id="adicionar-mapa-ao-app">ADICIONAR MAPA AO APP</h3>
+<div class="image-container">
+    <h2 class="image-title">
+       Para exportar o mapa basta clicar em “Layout”, no menu superior, e em “Exportar como PDF” 
+    </h2>
+    <img src="../img/materiais/qgis_alocacao_parcelas/img_27.PNG" alt="Descrição da Imagem" class="centered-image">
+</div>
+<p>Após isso, basta achar o mapa no dispositivo e carrega-lo para o app.
+<img src="../img/materiais/qgis_alocacao_parcelas/img_28.PNG" alt="Descrição da Imagem" class="centered-image"></p>
+<div class="justificado-transparente">
+    <p>
+    O Avenza Maps, assim como QGIS, possui diversas funções e não caberia nesta aula a explicação de todas as suas funcionalidades. Para mais informações, seguem materiais de estudo que podem ajudar os interessados a aprenderem mais sobre as aplicações utilizadas nesta aula:
+    </p>
+</div>
+
+<div>
+<a href="https://www.youtube.com/watch?v=gNOMmdSc9A8&list=PLvb2I6DWKZQ9KWUAH2b-_3QYodDnTsCln" target="_blank">Curso QGIS para iniciantes</a>.
+<p>
+<a href="https://www.youtube.com/watch?v=5_i8u34FvCg" target="_blank">Curso de Avenza Maps integrado com QGIS</a>.
+<p>
+</div>
+
+<div class="admonition success">
+<p class="admonition-title">Muito bem!</p>
+<p>Com esses aplicativos gratuitos, será possível planejar e executar seus primeiros inventários. A pratica leva a perfeição e a integração destas ferramentas com as atividades diárias é a maneira mais eficiênte de se absorver conhecimento sobre as mesmas.</p>
+</div>
+<style>
+.image-container {
+    text-align: center; /* Centraliza o conteúdo da div */
+    margin: 5px; /* Adiciona uma margem ao redor da div */
+}
+
+.image-title {
+    margin-bottom: 10px; /* Adiciona um espaço entre o título e a imagem */
+    font-size: 12px; /* Tamanho da fonte do título */
+}
+
+.centered-image {
+    display: block;
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho da div */
+    height: auto; /* Mantém a proporção da imagem */
+    border: 1px solid black;
+}
+.icon-container {
+    display: flex; /* Usando flexbox para alinhar os ícones */
+    justify-content: center; /* Centralizando os ícones horizontalmente */
+    align-items: center; /* Centralizando os ícones verticalmente */
+}
+
+.icon-container img {
+    width: 100px; /* Defina a largura desejada para os ícones */
+    height: 100px; /* Mantém a proporção, se necessário */
+    margin: 0 10px; /* Adicione margens entre os ícones */
+}
+.justificado-transparente {
+    text-align: justify;
+    width: 100%; /* Largura opcional */
+    margin: 0 auto; /* Centraliza a div horizontalmente na página */
+    padding: 2px; /* Espaçamento interno */
+    background-color: transparent; /* Fundo transparente */
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - 2024 LEMFLOR - UFSM
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/laborat%C3%B3rio-de-estat%C3%ADstica-e-manejo-florestal-lemflor/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/RichterV" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<lemflor@ufsm.br>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "navigation.expand", "navigation.instant.preview"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs" type="module"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+    
+  </body>
+</html>
