@@ -60,6 +60,13 @@
     border: 1px solid #ccc; /* Borda opcional */
 }
 
+/* Centralizar o título */
+.swiper-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+  }
+  
 .swiper-slide {
     display: flex;
     flex-direction: column;
@@ -92,9 +99,17 @@
 }
 .swiper-button-prev,
 .swiper-button-next {
-    color: #009485; /* Troca a cor das setas para preto */
+    color: #009485; /* Troca a cor das setas para verde */
+    font-size: 2px !important;  /* Ajusta o tamanho das setas */
+    opacity: 0.1; /* Aumenta a opacidade das setas */
+    width: 5px; /* ajuste o valor para o tamanho desejado */
+    height: 5px; /* ajuste o valor para o tamanho desejado */
 }
 
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    opacity: 1; /* Aumenta a opacidade das setas ao passar o mouse */
+}
 /* Estilo para a área dos ícones sociais */
 .social-icons {
     display: flex;
