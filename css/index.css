@@ -60,27 +60,41 @@
     border: 1px solid #ccc; /* Borda opcional */
 }
 
-/* Centralizar o título */
+/* Estilos gerais */
+.swiper {
+    width: 100%;
+    margin: 0 auto; /* Centraliza o swiper */
+}
+
+.swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%; /* Garante que cada slide ocupe 100% da largura do swiper */
+}
 .swiper-title {
     text-align: center;
     margin-bottom: 20px;
     font-size: 2em;
-  }
-  
+}
+
 .swiper-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-  
+
 .member-photo {
     display: block;
     margin: 0 auto;
-    width: 150px;  /* Largura fixa de 300 pixels */
-    height: 200px;  /* Altura fixa de 400 pixels */
-    object-fit: cover;  /* Ajusta a imagem para cobrir totalmente a área definida */
-    border: 2px solid black;  /* Adiciona uma borda preta de 2 pixels */
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid black;
 }
 
 .member-name {
@@ -91,25 +105,27 @@
 
 .member-description {
     max-width: 600px;
-    margin: 5px auto;
+    margin: 1px auto;
     font-size: 16px;
     line-height: 1.5;
-    font-style: italic;  /* Tornar o texto em itálico */
-    text-align: justify;  /* Justificar o texto */
+    font-style: italic;
+    text-align: justify;
 }
+
 .swiper-button-prev,
 .swiper-button-next {
-    color: #009485; /* Troca a cor das setas para verde */
-    font-size: 2px !important;  /* Ajusta o tamanho das setas */
-    opacity: 0.1; /* Aumenta a opacidade das setas */
-    width: 5px; /* ajuste o valor para o tamanho desejado */
-    height: 5px; /* ajuste o valor para o tamanho desejado */
+    color: #009485;
+    font-size: 2px !important;
+    opacity: 0.1;
+    width: 5px;
+    height: 5px;
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    opacity: 1; /* Aumenta a opacidade das setas ao passar o mouse */
+    opacity: 1;
 }
+
 /* Estilo para a área dos ícones sociais */
 .social-icons {
     display: flex;
@@ -122,14 +138,45 @@
 /* Estilo para os ícones sociais individuais */
 .social-icons a {
     margin: 0 10px;
-    color: #009485; /* Cor dos ícones */
-    font-size: 24px; /* Tamanho dos ícones */
+    color: #009485;
+    font-size: 24px;
     text-decoration: none;
-    transition: color 0.3s; /* Transição suave para a mudança de cor */
+    transition: color 0.3s;
 }
 
 /* Efeito hover para os ícones sociais */
 .social-icons a:hover {
-    color: #006655; /* Cor dos ícones ao passar o mouse */
+    color: #006655;
 }
 
+/* Responsividade */
+@media (max-width: 600px) {
+    .swiper-title {
+        font-size: 1.5em;
+    }
+
+    .member-photo {
+        width: 100px;
+        height: 150px;
+    }
+
+    .member-name {
+        font-size: 20px;
+    }
+
+    .member-description {
+        font-size: 14px;
+        max-width: 90%;
+    }
+
+    .social-icons a {
+        font-size: 20px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        font-size: 1.5px !important;
+        width: 4px;
+        height: 4px;
+    }
+}
