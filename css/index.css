@@ -1,0 +1,120 @@
+.responsavel-row {
+    display: flex;
+    flex-direction: column;  /* Coloca o título acima da foto e descrição */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.responsavel-container {
+    display: flex;
+    align-items: center;  /* Centraliza verticalmente a foto e a descrição */
+    text-align: left;  /* Alinha o texto à esquerda */
+}
+
+.responsavel-photo {
+    width: 200px;  /* Largura fixa de 200 pixels */
+    height: 280px;  /* Altura fixa de 280 pixels */
+    object-fit: cover;  /* Ajusta a imagem para cobrir totalmente a área definida */
+    border: 2px solid black;  /* Adiciona uma borda preta de 2 pixels */
+    margin-right: 20px;  /* Adiciona espaço entre a imagem e a descrição */
+}
+
+.responsavel-name {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 10px;  /* Espaço entre o título e o conteúdo */
+}
+
+.responsavel-description {
+    max-width: 600px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-style: italic;  /* Torna o texto em itálico */
+    text-align: justify;  /* Justifica o texto */
+}
+
+@media (max-width: 768px) {
+    .responsavel-container {
+        flex-direction: column;  /* Muda para coluna em telas menores */
+        align-items: center;  /* Centraliza o conteúdo */
+        text-align: center;  /* Alinha o texto ao centro */
+    }
+
+    .responsavel-photo {
+        margin-right: 0;  /* Remove o espaço à direita */
+        margin-bottom: 20px;  /* Adiciona espaço abaixo da imagem */
+    }
+
+    .responsavel-description {
+        max-width: 100%;  /* Permite que a descrição ocupe toda a largura disponível */
+    }
+}
+
+
+.justificado {
+    text-align: justify;
+    width: 100%; /* Largura opcional */
+    margin: 0 auto; /* Centraliza a div horizontalmente na página */
+    padding: 20px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda opcional */
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+  
+.member-photo {
+    display: block;
+    margin: 0 auto;
+    width: 150px;  /* Largura fixa de 300 pixels */
+    height: 200px;  /* Altura fixa de 400 pixels */
+    object-fit: cover;  /* Ajusta a imagem para cobrir totalmente a área definida */
+    border: 2px solid black;  /* Adiciona uma borda preta de 2 pixels */
+}
+
+.member-name {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.member-description {
+    max-width: 600px;
+    margin: 5px auto;
+    font-size: 16px;
+    line-height: 1.5;
+    font-style: italic;  /* Tornar o texto em itálico */
+    text-align: justify;  /* Justificar o texto */
+}
+.swiper-button-prev,
+.swiper-button-next {
+    color: #009485; /* Troca a cor das setas para preto */
+}
+
+/* Estilo para a área dos ícones sociais */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 5%;
+}
+
+/* Estilo para os ícones sociais individuais */
+.social-icons a {
+    margin: 0 10px;
+    color: #009485; /* Cor dos ícones */
+    font-size: 24px; /* Tamanho dos ícones */
+    text-decoration: none;
+    transition: color 0.3s; /* Transição suave para a mudança de cor */
+}
+
+/* Efeito hover para os ícones sociais */
+.social-icons a:hover {
+    color: #006655; /* Cor dos ícones ao passar o mouse */
+}
+
